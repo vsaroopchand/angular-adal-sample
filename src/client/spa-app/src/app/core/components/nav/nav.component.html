@@ -1,0 +1,36 @@
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Client-App</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a routerLink="home" routerLinkActive="active">Home</a>
+                    </li>
+                    <li>
+                        <a routerLink="about" routerLinkActive="active">About</a>
+                    </li>
+                    <li *ngIf="userName">
+                        <a routerLink="values" routerLinkActive="active">Values</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id="user-name">{{ userName }}</a>
+                    </li>
+                    <li>
+                        <a class="btn" (click)="signInOut()">{{ userName ? 'Sign out' : 'Sign in' }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>

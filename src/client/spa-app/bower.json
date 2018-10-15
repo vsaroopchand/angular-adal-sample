@@ -1,0 +1,25 @@
+{
+  "name": "client-app",
+  "description": "angular/adal sample",
+  "main": "",
+  "authors": [
+    "Vishal Saroopchand <vsaroopchand@hotmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "adal",
+    "angular"
+  ],
+  "homepage": "https://github.com/vsaroopchand/adal-samples",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/public",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.7"
+  }
+}

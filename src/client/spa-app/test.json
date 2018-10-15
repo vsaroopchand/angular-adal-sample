@@ -1,0 +1,12 @@
+"appRoles": [
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "displayName": "Admin",
+      "id": "d1c2ade8-98f8-45fd-aa4a-6d06b947c66f",
+      "isEnabled": true,
+      "description": "Admins have the ability to manage lookups and metadata",
+      "value": "Admin"
+    }
+  ]

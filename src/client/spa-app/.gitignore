@@ -1,0 +1,61 @@
+obj
+bin
+_ReSharper*
+*.csproj.user
+*.ReSharper.user
+*.ReSharper
+*.user
+*.suo
+*.cache
+~$*
+*~
+*.log
+packages
+*.ncrunch*
+/pkg
+/dist
+
+
+# dependencies
+/node_modules
+
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# compiled output
+/tmp
+/out-tsc
+/resources
+/aot
+/src/public
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
+/.vs/config
+/Dashboard/node_modules
+/Dashboard/src/public
+/SfPerfTest/pkg/Debug
+/Greeter
+/protos
+/generate_protos.bat
+/csharp
+/Service2/PackagRoot/Config/Settings.xml
