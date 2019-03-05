@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 import { retry } from 'rxjs/operators';
 import { AdalConfigService } from './adal-config.service';
+import { adal } from 'adal-angular';
 
 declare var AuthenticationContext: adal.AuthenticationContextStatic;
 let createAuthContextFn: adal.AuthenticationContextStatic = AuthenticationContext;
