@@ -1,0 +1,20 @@
+[{
+  "allowedMemberTypes": [
+    "User"
+  ],
+  "displayName": "Admin",
+  "id": "c20e145e-5459-4a6c-a074-b942bbd4cfe1",
+  "isEnabled": true,
+  "description": "Administrators can manage ... ",
+  "value": "Admin"
+},
+{
+  "allowedMemberTypes": [
+    "User"
+  ],
+  "displayName": "Creator",
+  "id": "1b4f816e-5eaf-48b9-8613-7923830595ad",
+  "isEnabled": true,
+  "description": "Creators can create ... ",
+  "value": "Creator"
+}]

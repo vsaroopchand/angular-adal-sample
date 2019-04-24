@@ -55,6 +55,7 @@ export class AdalService {
                 if (token) {
                     subscriber.next(token);
                 } else {
+                    console.error(message)
                     subscriber.error(message);
                 }
             })

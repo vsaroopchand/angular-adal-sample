@@ -1,0 +1,1 @@
+    az ad app credential reset --id 6737e1a8-990b-4816-a2a6-95eca7fa9d79 --append --credential-description secretkey --password LetMeIn101 --years 2

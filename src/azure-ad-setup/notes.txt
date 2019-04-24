@@ -1,0 +1,72 @@
+Step1: Create the server application
+    az ad app create --display-name WebServer-OpenIDConnect-DotNet
+    --key-type Password 
+    --native-app false 
+    --password LetMeIn101 
+    --oauth2-allow-implicit-flow true 
+    --identifier-uris https://localhost:5001 
+    --app-roles @manifest.json 
+
+Step2: Create Service Principal for Application (Optional)
+    az ad sp create --id [REPLACE WITH CLIENTID FROM STEP 1]
+                [--subscription]
+
+Step3: Create Client application
+    az ad app create --display-name WebApp-OpenIDConnect-DotNet
+    --key-type Password 
+    --native-app false 
+    --password LetMeIn101 
+    --oauth2-allow-implicit-flow true 
+    --identifier-uris https://localhost:4200
+    --homepage https://localhost:4200/home
+    --reply-urls https://localhost:4200/frameredirect http://localhost:4200/frameredirect
+    --required-resource-accesses @manifest2.json
+
+Step4: Convert Client App to SP (Optional)
+    az ad sp create --id [REPLACE WITH CLIENTID FROM STEP 3]
+
+Step5: Update the Client Apps --required-resource-accesses
+    az ad app update --id [REPLACE WITH CLIENTID FROM STEP 3] --required-resource-accesses @manifest2.json
+
+Step6: Create a Client Secret for Client App (Optional, needed for Client Credentials Flow)
+    az ad app credential reset --id [REPLACE WITH CLIENTID FROM STEP 3] --append --credential-description secretkey --password LetMeIn101 --years 2
+
+Step7: Add Secret
+    az ad app credential reset 
+    --id [REPLACE WITH CLIENTID FROM STEP 3]
+    --append
+    --credential-description secretkey
+    --password LetMeIn101
+    --years 2
+
+Step 8: Grant accesses
+az ad app permission grant --id [REPLACE WITH CLIENTID FROM STEP 3] --api [REPLACE WITH CLIENTID FROM STEP 1]
+
+Manual Edits:
+For some reason, the client app settings didn't stick. I had to manually add the redirect url and oauth2AllowImplicitFlow to manifest
+  "replyUrls": [
+    "http://localhost:4200/frameredirect",
+    "https://localhost:4200/frameredirect"
+  ],
+
+and
+
+  "oauth2AllowImplicitFlow": true,
+
+
+Additional Info:
+// See list of permissions on a client app
+az ad app permission list --id [REPLACE WITH CLIENTID]
+
+// Adding Delegated permissions creates the following in manifest
+"requiredResourceAccess": [
+    {
+      "resourceAppId": "f8f1e8d3-dfd1-400f-93b6-30b7404d2c9a", <- This is the AppID
+      "resourceAccess": [
+        {
+          "id": "4da72b0f-1f95-4d53-8b8d-ed070fd881cf", <- This is the OAuth2 Permissions
+          "type": "Scope"
+        }
+      ]
+    }
+  ],

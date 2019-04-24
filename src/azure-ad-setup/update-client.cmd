@@ -1,0 +1,1 @@
+az ad app update --id 6737e1a8-990b-4816-a2a6-95eca7fa9d79 --required-resource-accesses @manifest2.json                        
